@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Clone</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 272px;
+      height: 92px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      border: 1px solid #dfe1e5;
+      border-radius: 24px;
+      outline: none;
+      font-size: 16px;
+      box-shadow: 0 1px 6px rgba(32,33,36,.28);
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .buttons button {
+      background: #f8f9fa;
+      border: 1px solid #f8f9fa;
+      border-radius: 4px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      border: 1px solid #c6c6c6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo">
+  </div>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="search"
+      class="search-input"
+      placeholder="Buscar en Google..."
+    />
+
+    <div class="buttons">
+      <button onclick="search()">Buscar con Google</button>
+      <button onclick="search()">Voy a tener suerte</button>
+    </div>
+  </div>
+
+  <script>
+    function search() {
+      const query = document.getElementById("search").value.trim();
+      if (query !== "") {
+        const googleURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        window.location.href = googleURL;
+      }
+    }
+
+    document.getElementById("search").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        search();
+      }
+    });
+  </script>
+
+</body>
+</html>
